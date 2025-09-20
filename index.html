@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alyva.eth - Sistema MRP/ERP Industrial Avançado</title>
+    <title>Alyva - Sistema MRP/ERP Industrial Avançado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,358 +12,859 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            --green: #10b981;
+            --orange: #f59e0b;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: var(--gray-700);
+            background: var(--white);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
+        /* Header */
         .header {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            margin: 0 auto 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
-            font-weight: bold;
-            color: #667eea;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
         }
 
-        h1 {
-            color: white;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            border: 2px solid var(--white);
         }
 
-        .subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .brand-text {
+            display: flex;
+            flex-direction: column;
         }
 
-        .ens-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 50px;
-            color: white;
-            font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .brand-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .brand-domain {
+            font-size: 14px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-web3 {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-web3:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--gray-700);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+            border: 2px solid var(--gray-200);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 4rem 0;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gray-50);
+            border-radius: 12px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Modules Section */
+        .modules {
+            background: var(--gray-50);
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .module-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
         }
 
         .module-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .module-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
         }
 
         .module-title {
-            color: white;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
         }
 
         .module-description {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
             line-height: 1.6;
-            margin-bottom: 20px;
         }
 
         .module-features {
             list-style: none;
-            color: rgba(255, 255, 255, 0.8);
         }
 
         .module-features li {
-            margin-bottom: 8px;
-            padding-left: 20px;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
             position: relative;
+            color: var(--gray-600);
+            font-size: 0.9rem;
         }
 
         .module-features li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #4ade80;
-            font-weight: bold;
+            color: var(--green);
+            font-weight: 600;
         }
 
-        .cta-section {
+        .module-roi {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--green);
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 8px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #a7f3d0;
         }
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #4ade80, #22c55e);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
+        .roi-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.4);
+        .roi-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-top: 0.25rem;
         }
 
-        .btn-secondary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+            padding: 5rem 0;
         }
 
-        .btn-secondary:hover {
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .contact-content p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
         .contact-info {
-            margin-top: 30px;
-            color: rgba(255, 255, 255, 0.9);
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+            font-weight: 500;
+            color: var(--gray-900);
         }
 
         .web3-status {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(74, 222, 128, 0.2);
-            border-radius: 10px;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .stat-item {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 8px;
+            border: 1px solid #93c5fd;
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #4ade80;
-            margin-bottom: 10px;
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-blue);
         }
 
-        .stat-label {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1em;
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
+        .status-dot.connected {
+            background: var(--green);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .logo {
+            background: var(--primary-blue);
+        }
+
+        .footer-text {
+            max-width: 500px;
+            margin: 0 auto;
+            color: var(--gray-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .nav-links {
+                display: none;
             }
             
-            h1 {
-                font-size: 2em;
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .modules-grid {
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .modules {
+                padding: 3rem 0;
+            }
+            
+            .contact {
+                padding: 3rem 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="logo">A</div>
-            <h1>Alyva.eth</h1>
-            <p class="subtitle">O Sistema MRP/ERP Mais Avançado do Brasil</p>
-            <div class="ens-badge">🌐 Identidade Web3 Verificada</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo-container">
+                    <div class="logo">A</div>
+                    <div class="brand-text">
+                        <div class="brand-name">Alyva</div>
+                        <div class="brand-domain">alyva.eth</div>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <button class="btn-web3" onclick="connectWallet()">
+                    <span>🔗</span>
+                    Conectar Web3
+                </button>
+            </nav>
         </div>
+    </header>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Módulos Integrados</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">300%</div>
-                <div class="stat-label">ROI Médio</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">99.9%</div>
-                <div class="stat-label">Uptime</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Compliance BR</div>
-            </div>
-        </div>
-
-        <!-- Modules Grid -->
-        <div class="modules-grid">
-            <div class="module-card">
-                <div class="module-icon">🏭</div>
-                <h3 class="module-title">MRP Avançado</h3>
-                <p class="module-description">
-                    Planejamento de produção inteligente com IA, explosão de BOM multinível e otimização de recursos.
-                </p>
-                <ul class="module-features">
-                    <li>Explosão BOM 15+ níveis em <5min</li>
-                    <li>Simulação de cenários What-If</li>
-                    <li>Capacity Planning (CRP)</li>
-                    <li>Análise de gargalos automática</li>
-                </ul>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">📦</div>
-                <h3 class="module-title">WMS com IA</h3>
-                <p class="module-description">
-                    Warehouse Management com digital twin 2D/3D, picking otimizado e rastreabilidade completa.
-                </p>
-                <ul class="module-features">
-                    <li>Mapa visual 2D/3D do armazém</li>
-                    <li>Picking 40% mais eficiente</li>
-                    <li>99.8% de acuracidade</li>
-                    <li>RFID + Computer Vision</li>
-                </ul>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">🚛</div>
-                <h3 class="module-title">TMS Otimizado</h3>
-                <p class="module-description">
-                    Transportation Management com otimização de rotas por IA e economia comprovada de combustível.
-                </p>
-                <ul class="module-features">
-                    <li>25% redução distância</li>
-                    <li>30% economia combustível</li>
-                    <li>95% pontualidade entregas</li>
-                    <li>Rastreamento tempo real</li>
-                </ul>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">🎯</div>
-                <h3 class="module-title">Qualidade Total</h3>
-                <p class="module-description">
-                    Sistema de qualidade com HACCP digital, SPC automático e compliance regulatório brasileiro.
-                </p>
-                <ul class="module-features">
-                    <li>HACCP digital completo</li>
-                    <li>SPC em tempo real</li>
-                    <li>100% compliance ANVISA</li>
-                    <li>Rastreabilidade genealógica</li>
-                </ul>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">💰</div>
-                <h3 class="module-title">Fiscal Brasileiro</h3>
-                <p class="module-description">
-                    Engine fiscal com 100% de compliance, SPED automático e cálculo de impostos inteligente.
-                </p>
-                <ul class="module-features">
-                    <li>NFe/NFCe automático</li>
-                    <li>SPED Fiscal/Contábil</li>
-                    <li>Todas obrigações acessórias</li>
-                    <li>Zero multas fiscais</li>
-                </ul>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">📊</div>
-                <h3 class="module-title">BI & Analytics</h3>
-                <p class="module-description">
-                    Business Intelligence com ML nativo, dashboards executivos e predições avançadas.
-                </p>
-                <ul class="module-features">
-                    <li>Dashboards tempo real</li>
-                    <li>Predições por ML</li>
-                    <li>KPIs executivos</li>
-                    <li>Análise preditiva</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="cta-section">
-            <h2 style="color: white; margin-bottom: 20px;">Revolucione sua Indústria com Alyva</h2>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-size: 1.2em;">
-                Junte-se às empresas que escolheram o futuro da gestão industrial
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Sistema MRP/ERP<br>Mais Avançado do Brasil</h1>
+            <p class="hero-subtitle">Tecnologia industrial de classe mundial</p>
+            <p class="hero-description">
+                Revolucione sua indústria com o único sistema MRP Classe A totalmente compatível 
+                com regulamentações brasileiras, potencializado por IA e integrado à Web3.
             </p>
-            
-            <button class="btn" onclick="connectWallet()">🔗 Conectar Carteira Web3</button>
-            <a href="mailto:leonardo.andrade@alyva.io" class="btn btn-secondary">📧 Agendar Demo</a>
-            
-            <div class="contact-info">
-                <h3 style="color: white; margin-bottom: 15px;">Contato</h3>
-                <p><strong>Web3:</strong> alyva.eth</p>
-                <p><strong>Email:</strong> leonardo.andrade@alyva.io</p>
-                <p><strong>GitHub:</strong> Alyva-Systems</p>
-            </div>
-
-            <div class="web3-status" id="walletStatus">
-                <strong>🌐 Status Web3:</strong> <span id="connectionStatus">Carteira não conectada</span>
+            <div class="btn-group">
+                <a href="#produtos" class="btn-primary">
+                    <span>🚀</span>
+                    Ver Demonstração
+                </a>
+                <a href="mailto:leonardo.andrade@alyva.io" class="btn-secondary">
+                    <span>📧</span>
+                    Agendar Reunião
+                </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Módulos Integrados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">300%</div>
+                    <div class="stat-label">ROI Médio Comprovado</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime Garantido</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Compliance Brasil</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules" id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Soluções Industriais Avançadas</h2>
+                <p class="section-subtitle">
+                    Cada módulo foi desenvolvido para resolver dores reais da indústria brasileira,
+                    com ROI comprovado e implementação rápida.
+                </p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🏭</div>
+                        <h3 class="module-title">MRP Inteligente</h3>
+                    </div>
+                    <p class="module-description">
+                        Planejamento de produção com IA, explosão de BOM multinível e simulação de cenários.
+                        100x mais rápido que ERPs tradicionais.
+                    </p>
+                    <ul class="module-features">
+                        <li>Explosão BOM 15+ níveis em menos de 5 minutos</li>
+                        <li>Simulação What-If com múltiplos cenários</li>
+                        <li>Capacity Planning (CRP) automático</li>
+                        <li>Identificação de gargalos por IA</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">ROI Médio</div>
+                        <div class="roi-value">350%</div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">📦</div>
+                        <h3 class="module-title">WMS Avançado</h3>
+                    </div>
+                    <p class="module-description">
+                        Warehouse Management com digital twin 2D/3D, picking otimizado por IA e 
+                        rastreabilidade completa com RFID + Computer Vision.
+                    </p>
+                    <ul class="module-features">
+                        <li>Mapa visual 2D/3D do armazém em tempo real</li>
+                        <li>Picking 40% mais eficiente que concorrentes</li>
+                        <li>99.8% de acuracidade nos inventários</li>
+                        <li>Integração RFID e Computer Vision</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">ROI Médio</div>
+                        <div class="roi-value">280%</div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🚛</div>
+                        <h3 class="module-title">TMS Otimizado</h3>
+                    </div>
+                    <p class="module-description">
+                        Transportation Management com otimização de rotas por IA, economia de 30% 
+                        no combustível e 95% de pontualidade nas entregas.
+                    </p>
+                    <ul class="module-features">
+                        <li>25% redução na distância percorrida</li>
+                        <li>30% economia comprovada de combustível</li>
+                        <li>95% pontualidade nas entregas</li>
+                        <li>Rastreamento em tempo real</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">Economia Anual</div>
+                        <div class="roi-value">R$ 500k+</div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🎯</div>
+                        <h3 class="module-title">Qualidade Total</h3>
+                    </div>
+                    <p class="module-description">
+                        Sistema de qualidade com HACCP digital, SPC automático e 100% de compliance 
+                        com regulamentações brasileiras (ANVISA, INMETRO, etc.).
+                    </p>
+                    <ul class="module-features">
+                        <li>HACCP digital completo e automático</li>
+                        <li>SPC (Statistical Process Control) em tempo real</li>
+                        <li>100% compliance ANVISA/INMETRO</li>
+                        <li>Rastreabilidade genealógica completa</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">ROI Médio</div>
+                        <div class="roi-value">500%</div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">💰</div>
+                        <h3 class="module-title">Fiscal Brasileiro</h3>
+                    </div>
+                    <p class="module-description">
+                        Engine fiscal com 100% de compliance, SPED automático, cálculo inteligente 
+                        de impostos e zero multas fiscais garantidas.
+                    </p>
+                    <ul class="module-features">
+                        <li>NFe/NFCe automático com SEFAZ</li>
+                        <li>SPED Fiscal/Contábil/Contribuições</li>
+                        <li>Todas as obrigações acessórias</li>
+                        <li>Atualização automática da legislação</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">Redução Custos</div>
+                        <div class="roi-value">70%</div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">📊</div>
+                        <h3 class="module-title">BI & Analytics</h3>
+                    </div>
+                    <p class="module-description">
+                        Business Intelligence com Machine Learning nativo, dashboards executivos 
+                        em tempo real e análises preditivas avançadas.
+                    </p>
+                    <ul class="module-features">
+                        <li>Dashboards executivos em tempo real</li>
+                        <li>Predições por Machine Learning</li>
+                        <li>KPIs personalizados por setor</li>
+                        <li>Análise preditiva de demanda</li>
+                    </ul>
+                    <div class="module-roi">
+                        <div class="roi-label">Melhoria</div>
+                        <div class="roi-value">+40% Decisões</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <h2>Pronto para Revolucionar sua Indústria?</h2>
+                    <p>
+                        Junte-se às empresas que escolheram o Alyva para transformar suas operações.
+                        Agende uma demonstração personalizada e veja como podemos otimizar seus processos.
+                    </p>
+                    <div class="btn-group">
+                        <a href="mailto:leonardo.andrade@alyva.io" class="btn-primary">
+                            <span>📧</span>
+                            Agendar Demonstração
+                        </a>
+                        <button class="btn-secondary" onclick="connectWallet()">
+                            <span>🔗</span>
+                            Conectar Web3
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Domínio Web3</div>
+                            <div class="contact-value">alyva.eth</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Email Corporativo</div>
+                            <div class="contact-value">leonardo.andrade@alyva.io</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div class="contact-details">
+                            <div class="contact-label">GitHub</div>
+                            <div class="contact-value">Alyva-Systems</div>
+                        </div>
+                    </div>
+                    
+                    <div class="web3-status">
+                        <div class="status-indicator">
+                            <span class="status-dot" id="statusDot"></span>
+                            <span id="connectionStatus">Carteira não conectada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">A</div>
+                    <div class="brand-text">
+                        <div class="brand-name" style="color: var(--white);">Alyva</div>
+                        <div class="brand-domain">alyva.eth</div>
+                    </div>
+                </div>
+                <p class="footer-text">
+                    Sistema MRP/ERP industrial mais avançado do Brasil. 
+                    Tecnologia de classe mundial com compliance brasileiro total.
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alyva Systems. Todos os direitos reservados. | Web3 Identity: alyva.eth</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Web3 Wallet Connection
@@ -375,48 +877,112 @@
                     
                     if (accounts.length > 0) {
                         const account = accounts[0];
-                        document.getElementById('connectionStatus').innerHTML = 
-                            `✅ Conectado: ${account.substring(0, 6)}...${account.substring(38)}`;
+                        updateConnectionStatus(true, account);
                         
-                        // Try to resolve ENS
+                        // Show success message
+                        showNotification('🎉 Carteira conectada com sucesso!', 'success');
+                        
+                        // Try to resolve ENS name
                         try {
                             const ensName = await getENSName(account);
                             if (ensName) {
-                                document.getElementById('connectionStatus').innerHTML = 
-                                    `✅ Conectado: ${ensName}`;
+                                updateConnectionStatus(true, ensName);
                             }
                         } catch (e) {
                             console.log('ENS resolution not available');
                         }
-                        
-                        alert('🎉 Bem-vindo ao Alyva Web3!\n\n' + 
-                              'Agora você pode:\n' +
-                              '• Receber pagamentos em alyva.eth\n' +
-                              '• Acessar recursos exclusivos\n' +
-                              '• Participar do ecossistema Web3');
                     }
                 } else {
-                    alert('🦊 Para acessar recursos Web3, instale o MetaMask:\n\n' +
-                          'Chrome: chrome.google.com/webstore\n' +
-                          'Firefox: addons.mozilla.org\n\n' +
-                          'Ou use qualquer carteira compatível!');
+                    showNotification('🦊 Para acessar recursos Web3, instale o MetaMask ou outra carteira compatível!', 'warning');
                     window.open('https://metamask.io', '_blank');
                 }
             } catch (error) {
                 console.error('Erro ao conectar carteira:', error);
-                document.getElementById('connectionStatus').innerHTML = 
-                    '❌ Erro na conexão';
+                updateConnectionStatus(false);
+                showNotification('❌ Erro ao conectar carteira. Tente novamente.', 'error');
             }
         }
 
-        // Simple ENS resolution (if available)
+        // Update connection status
+        function updateConnectionStatus(connected, account = null) {
+            const statusElement = document.getElementById('connectionStatus');
+            const statusDot = document.getElementById('statusDot');
+            
+            if (connected && account) {
+                const displayName = account.includes('.eth') ? 
+                    account : 
+                    `${account.substring(0, 6)}...${account.substring(38)}`;
+                    
+                statusElement.textContent = `Conectado: ${displayName}`;
+                statusDot.classList.add('connected');
+            } else {
+                statusElement.textContent = 'Carteira não conectada';
+                statusDot.classList.remove('connected');
+            }
+        }
+
+        // Simple ENS resolution placeholder
         async function getENSName(address) {
-            // This would require a proper Web3 provider
+            // In a real implementation, this would use a Web3 provider
             // For now, just return null
             return null;
         }
 
-        // Check if wallet is already connected
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 16px 24px;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                max-width: 400px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+                transform: translateX(100%);
+            `;
+            
+            // Set background color based on type
+            switch(type) {
+                case 'success':
+                    notification.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    break;
+                case 'warning':
+                    notification.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+                    break;
+                case 'error':
+                    notification.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                    break;
+                default:
+                    notification.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Check if wallet is already connected on page load
         window.addEventListener('load', async () => {
             if (typeof window.ethereum !== 'undefined') {
                 try {
@@ -424,19 +990,19 @@
                         method: 'eth_accounts' 
                     });
                     if (accounts.length > 0) {
-                        const account = accounts[0];
-                        document.getElementById('connectionStatus').innerHTML = 
-                            `✅ Já conectado: ${account.substring(0, 6)}...${account.substring(38)}`;
+                        updateConnectionStatus(true, accounts[0]);
                     }
                 } catch (error) {
-                    console.log('Não foi possível verificar contas conectadas');
+                    console.log('Could not check connected accounts');
                 }
             }
+            
+            // Add scroll animations
+            initScrollAnimations();
         });
 
-        // Add some interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate cards on scroll
+        // Scroll animations
+        function initScrollAnimations() {
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -451,14 +1017,72 @@
                 });
             }, observerOptions);
 
-            // Observe all module cards
-            document.querySelectorAll('.module-card, .stat-item').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'all 0.6s ease';
-                observer.observe(card);
+            // Observe all animatable elements
+            const animatedElements = document.querySelectorAll('.module-card, .stat-item, .contact-info');
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease';
+                observer.observe(element);
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
+
+        // Add dynamic stats counter animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (stat.textContent.includes('%')) {
+                        stat.textContent = Math.floor(current) + '%';
+                    } else if (stat.textContent.includes('+')) {
+                        stat.textContent = Math.floor(current) + '+';
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 50);
+            });
+        }
+
+        // Trigger stats animation when in view
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
